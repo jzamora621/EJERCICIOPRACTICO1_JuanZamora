@@ -1,8 +1,5 @@
 package domain;
 
-
-import com.farmacia.model.Medicamento;
-import com.farmacia.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +12,11 @@ import java.util.List;
 public class MedicamentoController {
 
     @Autowired
-    private MedicamentoService medicamentoService;
+    private MedicamentosService MedicamentosService;
 
     @GetMapping
     public String listarMedicamentos(Model model) {
-        List<Medicamento> medicamentos = medicamentoService.listarTodos();
+        List<Medicamento> medicamentos = MedicamentosService.listarTodos();
         model.addAttribute("medicamentos", medicamentos);
         return "medicamentos/lista";
     }
@@ -32,27 +29,27 @@ public class MedicamentoController {
 
     @PostMapping("/guardar")
     public String guardarMedicamento(@ModelAttribute Medicamento medicamento) {
-        medicamentoService.guardar(medicamento);
+        MedicamentosService.guardar(medicamento);
         return "redirect:/medicamentos";
     }
 
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioDeEdicion(@PathVariable int id, Model model) {
-        Medicamento medicamento = medicamentoService.obtenerPorId(id);
+    public String mostrarFormularioDeEdicion(@PathVariable Long id, Model model) {
+        Medicamento medicamento = MedicamentosService.obtenerPorId(id);
         model.addAttribute("medicamento", medicamento);
         return "medicamentos/formulario";
     }
 
     @PostMapping("/actualizar/{id}")
-    public String actualizarMedicamento(@PathVariable int id, @ModelAttribute Medicamento medicamento) {
+    public String actualizarMedicamento(@PathVariable Long id, @ModelAttribute Medicamento medicamento) {
         medicamento.setId(id);
-        medicamentoService.guardar(medicamento);
+        MedicamentosService.guardar(medicamento);
         return "redirect:/medicamentos";
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarMedicamento(@PathVariable int id) {
-        medicamentoService.eliminar(id);
+    public String eliminarMedicamento(@PathVariable Long id) {
+        MedicamentosService.eliminar(id);
         return "redirect:/medicamentos";
     }
 }
