@@ -1,7 +1,9 @@
 {
     "elements": {},
     "attributes": {
+        "th:text": {},
         "th:replace": {},
-        "th:fragment": {}
+        "th:fragment": {},
+        "th:href": {}
     }
 }
