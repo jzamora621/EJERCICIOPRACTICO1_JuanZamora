@@ -1,0 +1,7 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:replace": {},
+        "th:fragment": {}
+    }
+}

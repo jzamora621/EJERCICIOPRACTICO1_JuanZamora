@@ -2,5 +2,8 @@ package dao;
 
 import domain.Medicamento;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MedicamentoDao extends JpaRepository<Medicamento, Long> {}
+@Repository
+public interface MedicamentoDao extends JpaRepository<Medicamento, Long> {
+}

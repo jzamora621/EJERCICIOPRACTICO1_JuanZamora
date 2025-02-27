@@ -1,5 +1,7 @@
 package domain;
 
+import service.MedicamentosService;
+import domain.Medicamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +14,15 @@ import java.util.List;
 public class MedicamentoController {
 
     @Autowired
-    private MedicamentosService MedicamentosService;
+    private MedicamentosService medicamentoService;
 
     @GetMapping
     public String listarMedicamentos(Model model) {
-        List<Medicamento> medicamentos = MedicamentosService.listarTodos();
+        List<Medicamento> medicamentos = medicamentoService.listarTodos();
         model.addAttribute("medicamentos", medicamentos);
-        return "medicamentos/lista";
+        return "productos";
     }
+    
 
     @GetMapping("/nuevo")
     public String mostrarFormularioDeRegistro(Model model) {
@@ -29,27 +32,27 @@ public class MedicamentoController {
 
     @PostMapping("/guardar")
     public String guardarMedicamento(@ModelAttribute Medicamento medicamento) {
-        MedicamentosService.guardar(medicamento);
+        medicamentoService.guardar(medicamento);
         return "redirect:/medicamentos";
     }
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioDeEdicion(@PathVariable Long id, Model model) {
-        Medicamento medicamento = MedicamentosService.obtenerPorId(id);
+        Medicamento medicamento = medicamentoService.obtenerPorId(id);
         model.addAttribute("medicamento", medicamento);
         return "medicamentos/formulario";
     }
 
     @PostMapping("/actualizar/{id}")
-    public String actualizarMedicamento(@PathVariable Long id, @ModelAttribute Medicamento medicamento) {
+    public String actualizarmedicamento(@PathVariable Long id, @ModelAttribute Medicamento medicamento) {
         medicamento.setId(id);
-        MedicamentosService.guardar(medicamento);
+        medicamentoService.guardar(medicamento);
         return "redirect:/medicamentos";
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarMedicamento(@PathVariable Long id) {
-        MedicamentosService.eliminar(id);
+    public String eliminarmedicamento(@PathVariable Long id) {
+        medicamentoService.eliminar(id);
         return "redirect:/medicamentos";
     }
 }

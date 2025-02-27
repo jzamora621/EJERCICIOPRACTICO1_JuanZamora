@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia Dr. Simi</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Estilos del header */
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Estilos del contenido */
+        main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+        }
+
+        /* Estilos del video */
+        .video-container {
+            margin-top: 30px;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Farmacia Dr. Simi</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="/sugerencias">Sugerencias</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <h1>Bienvenidos a Farmacia Dr. Simi</h1>
+        <p>Tu salud es nuestra prioridad. Encuentra los mejores productos al mejor precio.</p>
+        
+        <a href="/productos" class="btn">Ver Productos</a>
+
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/IeXl9Q6HpzE?si=zmPCx3dQErPxP0r8" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Farmacia Dr. Simi. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
